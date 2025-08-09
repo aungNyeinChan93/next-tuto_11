@@ -1,11 +1,11 @@
 import React from "react";
 
-const HomePage = async () => {
+const UsersPage = async () => {
   return (
     <React.Fragment>
-      <main>Home</main>
+      <main>Users Page</main>
     </React.Fragment>
   );
 };
 
-export default HomePage;
+export default UsersPage;
