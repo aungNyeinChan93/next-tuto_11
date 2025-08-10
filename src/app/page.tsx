@@ -1,9 +1,12 @@
+import Counter from "@/components/Counter";
 import React from "react";
 
 const HomePage = async () => {
   return (
     <React.Fragment>
-      <main>Home</main>
+      <main>
+        <Counter />
+      </main>
     </React.Fragment>
   );
 };
