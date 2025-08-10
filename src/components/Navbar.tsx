@@ -3,6 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import {
+  // GoogleOneTap,
   //   UserProfile,
   //   SignIn,
   SignedIn,
@@ -11,6 +12,7 @@ import {
   SignOutButton,
   SignUpButton,
   UserButton,
+  // UserProfile,
 } from "@clerk/nextjs";
 import Link from "next/link";
 import React, { useEffect } from "react";
