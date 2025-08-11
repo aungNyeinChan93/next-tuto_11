@@ -11,6 +11,7 @@ import {
   SignInButton,
   SignOutButton,
   SignUpButton,
+  useAuth,
   UserButton,
   // UserProfile,
 } from "@clerk/nextjs";
@@ -18,6 +19,8 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 
 const Navbar = () => {
+  const { sessionClaims } = useAuth();
+
   useEffect(() => {
     const toggleOpen = document.getElementById("toggleOpen");
     const toggleClose = document.getElementById("toggleClose");
@@ -120,14 +123,18 @@ const Navbar = () => {
                       Users
                     </Link>
                   </li>
-                  <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
-                    <a
-                      href="javascript:void(0)"
-                      className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]"
-                    >
-                      Blog
-                    </a>
-                  </li>
+                  {sessionClaims?.metadata?.role === "admin" && (
+                    <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
+                      <>
+                        <Link
+                          href="/admin"
+                          className="hover:text-blue-700 text-slate-900 block font-medium text-[15px]"
+                        >
+                          Admin
+                        </Link>
+                      </>
+                    </li>
+                  )}
                   <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3">
                     <a
                       href="javascript:void(0)"

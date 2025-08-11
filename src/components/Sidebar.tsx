@@ -1,3 +1,5 @@
+import { SignOutButton } from "@clerk/nextjs";
+import Link from "next/link";
 import React from "react";
 
 const Sidebar = async () => {
@@ -6,12 +8,12 @@ const Sidebar = async () => {
       <nav className="bg-white shadow-md border-r border-gray-200 h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 overflow-auto">
         <ul>
           <li>
-            <a
-              href="javascript:void(0)"
+            <Link
+              href="/admin"
               className="text-slate-700 font-medium text-[15px] block hover:text-slate-900 hover:bg-gray-100 rounded px-4 py-2 transition-all"
             >
               Dashboard
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -21,12 +23,12 @@ const Sidebar = async () => {
           </h6>
           <ul className="mt-2 space-y-1">
             <li>
-              <a
-                href="javascript:void(0)"
+              <Link
+                href="/admin/user-lists"
                 className="text-slate-700 font-medium text-[15px] block hover:text-slate-900 hover:bg-gray-100 rounded px-4 py-2 transition-all"
               >
-                Audience
-              </a>
+                Users
+              </Link>
             </li>
             <li>
               <a
@@ -97,6 +99,7 @@ const Sidebar = async () => {
           <h6 className="text-blue-600 text-sm font-semibold px-4">Actions</h6>
           <ul className="mt-2 space-y-1">
             <li>
+              {/* <UserProfile /> */}
               <a
                 href="javascript:void(0)"
                 className="text-slate-700 font-medium text-[15px] block hover:text-slate-900 hover:bg-gray-100 rounded px-4 py-2 transition-all"
@@ -105,12 +108,14 @@ const Sidebar = async () => {
               </a>
             </li>
             <li>
-              <a
-                href="javascript:void(0)"
-                className="text-slate-700 font-medium text-[15px] block hover:text-slate-900 hover:bg-gray-100 rounded px-4 py-2 transition-all"
-              >
-                Logout
-              </a>
+              <SignOutButton>
+                <a
+                  href="#"
+                  className="text-slate-700 font-medium text-[15px] block hover:text-slate-900 hover:bg-gray-100 rounded px-4 py-2 transition-all"
+                >
+                  Logout
+                </a>
+              </SignOutButton>
             </li>
           </ul>
         </div>
