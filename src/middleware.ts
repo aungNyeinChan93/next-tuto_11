@@ -8,13 +8,15 @@ const adminRoutes = createRouteMatcher(['/admin(.*)'])
 
 export default clerkMiddleware(async (auth, req) => {
     // if (!publicRoutes(req)) await auth.protect();
-    const { userId, redirectToSignIn, isAuthenticated } = await auth()
-    if (!userId && !publicRoutes(req) && !isAuthenticated) return redirectToSignIn()
+    const { userId, redirectToSignIn, sessionClaims } = await auth()
+    if (!userId && !publicRoutes(req)) return redirectToSignIn()
 
     // admin route
-    if (adminRoutes(req) && (await auth()).sessionClaims?.metadata.role !== 'admin') {
+    if (adminRoutes(req) && sessionClaims?.metadata.role !== 'admin') {
         return NextResponse.redirect(new URL('/not-authorize', req.url));
     }
+
+    return NextResponse.next();
 });
 
 export const config = {

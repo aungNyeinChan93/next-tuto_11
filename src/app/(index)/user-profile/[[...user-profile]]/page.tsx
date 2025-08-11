@@ -6,6 +6,7 @@ const UserProfilePage = async () => {
     <React.Fragment>
       <main className="flex justify-center items-center bg-slate-800 p-8">
         <UserProfile path="/user-profile" />
+        {/* <UserProfile /> */}
       </main>
     </React.Fragment>
   );

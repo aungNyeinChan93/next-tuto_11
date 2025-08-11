@@ -151,8 +151,24 @@ const Navbar = () => {
                       Contact
                     </a>
                   </li>
+                  <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3 block sm:hidden  font-semibold hover:text-red-600">
+                    <SignOutButton>Logout</SignOutButton>
+                  </li>
                 </ul>
               </SignedIn>
+              <SignedOut>
+                <ul className="lg:flex gap-x-4 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
+                  <li className="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3 block font-semibold sm:hidden ">
+                    {/* <SignInButton mode="modal">Login</SignInButton> */}
+                    <Link
+                      href={"/login"}
+                      className="px-2 py-2 bg-green-300 hover:bg-green-300/70 rounded-md"
+                    >
+                      Login
+                    </Link>
+                  </li>
+                </ul>
+              </SignedOut>
               <SignedOut>
                 <SignInButton>
                   <p className="text-indigo-500 p-2 text-xl font-semibold cursor-pointer">
@@ -163,7 +179,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex max-lg:ml-auto space-x-4">
-              {/* auth */}
+              {/* !auth */}
               <SignedOut>
                 <SignInButton mode="modal">
                   <button
@@ -183,7 +199,7 @@ const Navbar = () => {
                 </SignUpButton>
               </SignedOut>
 
-              {/* !auth */}
+              {/* auth */}
               <SignedIn>
                 <Link href={{ pathname: "/user-profile" }}>
                   <div className="px-4 py-2 bg-slate-200 text-black rounded-md ms-2">

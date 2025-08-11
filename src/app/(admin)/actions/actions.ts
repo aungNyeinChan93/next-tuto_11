@@ -4,7 +4,8 @@ import { Role } from "@/types/globals";
 import { auth, clerkClient } from "@clerk/nextjs/server"
 import { revalidatePath } from "next/cache";
 
-export const client = await clerkClient()
+// clerk Client 
+const client = await clerkClient();
 
 export async function setRole(formData: FormData) {
     try {
